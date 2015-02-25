@@ -24,7 +24,7 @@ If your WHMCS is installed in a subfolder than your directory structure would be
 -> Setup -> Addon Modules
 Scroll down until you see "Linode DNS Manager" Click on Activate
 
-5. Once it is activated click on Configure. Fill in the information request. You must enter your linode API key your License key provided by us when you purchased, and your SOA Email address. The Enable SSL and Homepage Display options are optional. (Make sure to click the checkbox for Full Administrator.
+5. Once it is activated click on Configure. Fill in the information request. You must enter your linode API key, and your SOA Email address. The Enable SSL and Homepage Display options are optional. (Make sure to click the checkbox for Full Administrator.
 
 6. Within WHMCS Admin navigate to: -> Addons -> Linode DNS Manager
 
