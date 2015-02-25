@@ -4,10 +4,12 @@ Auto creation of dns zones, client access to dns zones
 In order to use this addon you will need a few things.
 
 1. You will install the following PEAR modules into PHP
+<pre>
 $ sudo pear install Net_URL2-0.3.1
 $ sudo pear install HTTP_Request2-0.5.2
 $ sudo pear channel-discover pear.keremdurmus.com
 $ sudo pear install krmdrms/Services_Linode
+</pre>
 
 2. You will need to create an API key at linode within your linode account.
 I suggest you create a second user that only has access to DNS related functions.
