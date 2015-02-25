@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<linode>
+    <!-- Utility -->
+    <method name="avail.datacenters"></method>
+    <method name="avail.kernels"></method>
+    <method name="avail.linodeplans"></method>
+    <method name="avail.distributions"></method>
+    <method name="avail.stackscripts">
+        <param name="DistributionID" type="integer" required="false" />
+        <param name="DistributionVendor" type="string" required="false" />
+        <param name="keywords" type="string" required="false" /> 
+    </method>
+    <method name="api.spec"></method>
+    <method name="account.info"></method>
+
+    <!-- Domain -->
+    <method name="domain.update">
+        <param name="DomainID" type="integer" required="true" />
+        <param name="Domain" type="string" required="false" />
+        <param name="Description" type="string" required="false" />
+        <param name="Type" type="string" required="false" />
+        <param name="SOA_Email" type="string" required="false" />
+        <param name="Refresh_sec" type="integer" required="false" />
+        <param name="Retry_sec" type="integer" required="false" />
+        <param name="Expire_sec" type="integer" required="false" />
+        <param name="TTL_sec" type="integer" required="false" />
+        <param name="master_ips" type="string" required="false" />
+    </method>
+    <method name="domain.create">
+        <param name="Domain" type="string" required="true" />
+        <param name="Description" type="string" required="false" />
+        <param name="Type" type="string" required="true" />
+        <param name="SOA_Email" type="string" required="false" />
+        <param name="Refresh_sec" type="integer" required="false" />
+        <param name="Retry_sec" type="integer" required="false" />
+        <param name="Expire_sec" type="integer" required="false" />
+        <param name="TTL_sec" type="integer" required="false" />
+        <param name="status" type="integer" required="false" />
+        <param name="master_ips" type="string" required="false" />     
+    </method>
+    <method name="domain.list">
+        <param name="DomainID" type="integer" required="false" />    
+    </method>
+    <method name="domain.delete">
+        <param name="DomainID" type="integer" required="true" />     
+    </method>            
+        
+    <!-- Domain.Resource -->    
+    <method name="domain.resource.create">
+        <param name="DomainID" type="integer" required="true" />
+        <param name="Type" type="string" required="true" />
+        <param name="Name" type="string" required="false" />
+        <param name="Target" type="string" required="false" />
+        <param name="Priority" type="integer" required="false" />
+        <param name="Weight" type="integer" required="false" />
+        <param name="Port" type="integer" required="false" />
+        <param name="Protocol" type="string" required="false" />
+        <param name="TTL_sec" type="integer" required="false" /> 
+    </method>
+    <method name="domain.resource.delete">
+        <param name="DomainID" type="integer" required="true" />
+        <param name="ResourceID" type="integer" required="true" />
+    </method>  
+    <method name="domain.resource.update">
+        <param name="DomainID" type="integer" required="true" />
+        <param name="ResourceID" type="integer" required="true" />
+        <param name="Name" type="string" required="false" />
+        <param name="Target" type="string" required="false" />
+        <param name="Priority" type="integer" required="false" />
+        <param name="Weight" type="integer" required="false" />
+        <param name="Port" type="integer" required="false" />
+        <param name="Protocol" type="string" required="false" />
+        <param name="TTL_sec" type="integer" required="false" />
+    </method>  
+    <method name="domain.resource.list">
+        <param name="DomainID" type="integer" required="true" />
+        <param name="ResourceID" type="integer" required="false" />
+    </method>                
+    
+    <!-- Linode -->
+    <method name="linode.shutdown">
+        <param name="LinodeID" type="integer" required="true" />        
+    </method>
+    <method name="linode.update">
+        <param name="LinodeID" type="integer" required="false" />
+        <param name="Label" type="string" required="false" />
+        <param name="lpm_displayGroup" type="string" required="false" />
+        <param name="Alert_cpu_enabled" type="boolean" required="false" />
+        <param name="Alert_cpu_threshold" type="integer" required="false" />
+        <param name="Alert_diskio_enabled" type="boolean" required="false" />
+        <param name="Alert_diskio_threshold" type="integer" required="false" />
+        <param name="Alert_bwin_enabled" type="boolean" required="false" />  
+        <param name="Alert_bwin_threshold" type="integer" required="false" />
+        <param name="Alert_bwout_enabled" type="boolean" required="false" />
+        <param name="Alert_bwout_threshold" type="integer" required="false" />
+        <param name="Alert_bwquota_enabled" type="boolean" required="false" />
+        <param name="Alert_bwquota_threshold" type="integer" required="false" />
+        <param name="backupWindow" type="integer" required="false" />
+        <param name="backupWeeklyDay" type="integer" required="false" />
+        <param name="watchdog" type="boolean" required="false" />
+    </method>
+    <method name="linode.boot">
+        <param name="LinodeID" type="integer" required="true" />        
+        <param name="ConfigID" type="integer" required="false" />   
+    </method>
+    <method name="linode.create">
+        <param name="DatacenterID" type="integer" required="true" />
+        <param name="PlanID" type="integer" required="true" />    
+        <param name="PaymentTerm" type="integer" required="true" />
+    </method>
+    <method name="linode.reboot">
+        <param name="LinodeID" type="integer" required="true" />        
+        <param name="ConfigID" type="integer" required="false" />         
+    </method>
+    <method name="linode.delete">
+        <param name="LinodeID" type="integer" required="true" />        
+        <param name="skipChecks" type="boolean" required="false" />       
+    </method>
+    <method name="linode.resize">
+        <param name="LinodeID" type="integer" required="true" />        
+        <param name="PlanID" type="integer" required="true" />    
+    </method>
+    <method name="linode.list">
+        <param name="LinodeID" type="integer" required="false" />
+    </method>
+    
+    <!-- Linode.Config -->
+    <method name="linode.config.update">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="ConfigID" type="integer" required="true" />
+        <param name="KernelID" type="integer" required="false" />
+        <param name="Label" type="string" required="false" />
+        <param name="Comments" type="string" required="false" />
+        <param name="RAMLimit" type="integer" required="false" />
+        <param name="DiskList" type="string" required="false" />
+        <param name="RunLevel" type="string" required="false" />
+        <param name="RootDeviceNum" type="integer" required="false" />
+        <param name="RootDeviceCustom" type="string" required="false" />
+        <param name="RootDeviceRO" type="boolean" required="false" />
+        <param name="helper_disableUpdateDB" type="boolean" required="false" />
+        <param name="helper_xen" type="boolean" required="false" />
+        <param name="helper_depmod" type="boolean" required="false" />
+    </method>
+    <method name="linode.config.create">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="KernelID" type="integer" required="true" />
+        <param name="Label" type="string" required="true" />
+        <param name="Comments" type="string" required="false" />
+        <param name="RAMLimit" type="integer" required="false" />
+        <param name="DiskList" type="string" required="false" />
+        <param name="RunLevel" type="string" required="false" />
+        <param name="RootDeviceNum" type="integer" required="false" />
+        <param name="RootDeviceCustom" type="string" required="false" />
+        <param name="RootDeviceRO" type="boolean" required="false" />
+        <param name="helper_disableUpdateDB" type="boolean" required="false" />
+        <param name="helper_xen" type="boolean" required="false" />
+        <param name="helper_depmod" type="boolean" required="false" />    
+    </method>
+    <method name="linode.config.list">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="ConfigID" type="integer" required="false" />     
+    </method>
+    <method name="linode.config.delete">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="ConfigID" type="integer" required="true" />        
+    </method>    
+        
+    <!-- Disk -->
+    <method name="linode.disk.update">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DiskID" type="integer" required="true" />
+        <param name="Label" type="string"  required="false" />
+        <param name="isReadOnly" type="boolean" required="false" />
+    </method>     
+    <method name="linode.disk.create">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="Label" type="string"  required="true" />        
+        <param name="Type" type="string"  required="true" />       
+        <param name="isReadOnly" type="boolean" required="false" />
+        <param name="Size" type="integer"  required="true" />
+    </method> 
+    <method name="linode.disk.list">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DiskID" type="integer" required="false" />        
+    </method> 
+    <method name="linode.disk.createfromdistribution">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DistributionID" type="integer" required="true" />
+        <param name="Label" type="string" required="true" />
+        <param name="Size" type="integer" required="true" />
+        <param name="rootPass" type="string" required="true" />
+        <param name="rootSSHKey" type="string" required="false" />
+    </method> 
+    <method name="linode.disk.duplicate">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DiskID" type="integer" required="true" />          
+    </method>                
+    <method name="linode.disk.delete">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DiskID" type="integer" required="true" />          
+    </method>   
+    <method name="linode.disk.resize">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="DiskID" type="integer" required="true" />         
+        <param name="size" type="integer" required="true" /> 
+    </method>        
+    
+     <method name="linode.disk.createfromstackscript">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="StackScriptID" type="integer" required="true" />
+        <param name="StackScriptUDFResponses" type="string" required="true" />
+        <param name="DistributionID" type="integer" required="true" /> 
+        <param name="Label" type="string" required="true" /> 
+        <param name="Size" type="integer" required="true" /> 
+        <param name="rootPass" type="string" required="true" />                      
+    </method>      
+    
+    <!-- Stackscripts -->
+    <method name="stackscript.create">
+        <param name="Label" type="string" required="true" />
+        <param name="Description" type="string" required="false" />
+        <param name="DistributionIDList" type="string" required="true" />
+        <param name="isPublic" type="boolean" required="false" />
+        <param name="rev_note" type="string" required="false" />
+        <param name="script" type="string" required="true" />
+    </method>
+    <method name="stackscript.delete">
+        <param name="StackScriptID" type="integer" required="true" />
+    </method>
+    <method name="stackscript.list">
+        <param name="StackScriptID" type="integer" required="false" />
+    </method>
+    <method name="stackscript.update">
+        <param name="StackScriptID" type="string" required="true" />
+        <param name="Label" type="string" required="false" />
+        <param name="Description" type="string" required="false" />
+        <param name="DistributionIDList" type="string" required="true" />
+        <param name="isPublic" type="boolean" required="false" />
+        <param name="rev_note" type="string" required="false" />
+        <param name="script" type="string" required="false" />    
+    </method>
+    
+    <!-- IP -->
+    <method name="linode.ip.list">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="IpAdressID" type="integer" required="false" />        
+    </method>
+    <method name="linode.ip.addprivate">
+        <param name="LinodeID" type="integer" required="true" />      
+    </method>    
+    
+    <!-- User -->
+    <method name="user.getapikey">
+        <param name="username" type="string" required="true" />
+        <param name="password" type="string" required="true" />
+    </method>
+    
+    <!-- Job -->
+    <method name="linode.job.list">
+        <param name="LinodeID" type="integer" required="true" />
+        <param name="JobID" type="integer" required="false" />
+        <param name="pendingOnly" type="boolean" required="false" />        
+    </method>    
+
+    <!-- NodeBalancer -->
+    <method name="nodebalancer.create">
+        <param name="DatacenterID" type="integer" required="true" />
+        <param name="PaymentTerm" type="integer" required="true" />       
+    </method>  
+
+    <method name="nodebalancer.delete">
+        <param name="NodeBalancerID" type="integer" required="true" />    
+    </method>  
+
+    <method name="nodebalancer.list">
+        <param name="NodeBalancerID" type="integer" required="false" />       
+    </method>  
+
+    <method name="nodebalancer.update">
+        <param name="NodeBalancerID" type="integer" required="true" />
+        <param name="Label" type="string" required="false" />
+        <param name="ClientConnThrottle" type="integer" required="false" />        
+    </method>              
+
+     <!-- NodeBalancer.Config -->
+    <method name="nodebalancer.config.create">
+        <param name="NodeBalancerID" type="integer" required="true" />
+        <param name="Port" type="integer" required="false" />
+        <param name="Protocol" type="string" required="false" />
+        <param name="Algorithm" type="string" required="false" />
+        <param name="Stickiness" type="string" required="false" />
+        <param name="check" type="string" required="false" />
+        <param name="check_interval" type="integer" required="false" />
+        <param name="check_timeout" type="string" required="false" />
+        <param name="check_attempts" type="string" required="false" />
+        <param name="check_path" type="string" required="false" />
+        <param name="check_body" type="string" required="false" />       
+    </method>       
+
+    <method name="nodebalancer.config.delete"> 
+        <param name="ConfigID" type="integer" required="true" />  
+    </method>    
+
+    <method name="nodebalancer.config.list">
+        <param name="NodeBalancerID" type="integer" required="true" />
+        <param name="ConfigID" type="integer" required="false" />    
+    </method>          
+
+    <method name="nodebalancer.update">
+        <param name="NodeBalancerID" type="integer" required="true" />
+        <param name="Port" type="integer" required="false" />
+        <param name="Protocol" type="string" required="false" />
+        <param name="Algorithm" type="string" required="false" />
+        <param name="Stickiness" type="string" required="false" />
+        <param name="check" type="string" required="false" />
+        <param name="check_interval" type="integer" required="false" />
+        <param name="check_timeout" type="string" required="false" />
+        <param name="check_attempts" type="string" required="false" />
+        <param name="check_path" type="string" required="false" />
+        <param name="check_body" type="string" required="false" />     
+    </method>       
+
+    <!-- NodeBalancer.Node -->
+    <method name="nodebalancer.node.create">
+        <param name="ConfigID" type="integer" required="true" />
+        <param name="Label" type="string" required="true" />
+        <param name="Address" type="string" required="true" />
+        <param name="Weight" type="integer" required="false" />
+        <param name="Mode" type="integer" required="false" />   
+    </method>  
+
+    <method name="nodebalancer.node.delete">
+        <param name="NodeID" type="integer" required="true" />   
+    </method>  
+
+    <method name="nodebalancer.node.list">
+        <param name="ConfigID" type="integer" required="true" />
+        <param name="NodeID" type="integer" required="false" />    
+    </method>  
+
+    <method name="nodebalancer.node.update">
+        <param name="ConfigID" type="integer" required="true" />
+        <param name="Label" type="string" required="true" />
+        <param name="Address" type="string" required="true" />
+        <param name="Weight" type="integer" required="false" />
+        <param name="Mode" type="integer" required="false" />   
+    </method>               
+
+    <!-- Beta -->
+</linode>

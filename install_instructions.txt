@@ -1,6 +1,3 @@
-# WHMCS-Linode-DNS-Addon
-Auto creation of dns zones, client access to dns zones
-
 In order to use this addon you will need a few things.
 
 1. You will install the following PEAR modules into PHP
